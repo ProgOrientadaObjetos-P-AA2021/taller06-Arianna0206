@@ -99,25 +99,26 @@ public class EntidadHospitalaria {
         String cadena = "";
         cadena = String.format("%sHOSPITAL %s\n"
                 + "Dirección: %s\nCiudad: %s\nProvincia: %s\nNúmero de "
-                + "especialidades: %d\n", cadena,
+                + "especialidades: %d\nListado médicos\n", cadena,
                 obtenerHospital(),
                 obtenerDireccion(),
                 obtenerCiudadHospital().obtenerNombreCiudad(),
                 obtenerCiudadHospital().obtenerProvincia(),
                 obtenerEspecialidades());
-        //cadena = "Listado de médicos\n";
-        for (int i = 0; i < obtenerMedicos().length; i++) {
+        
+        for (int i = 0; i < medicos.length; i++) {
             cadena = String.format("%s-%s - sueldo: %.2f - %s\n", cadena,
-                    obtenerMedicos()[i].obtenerNombreMedico(),
-                    obtenerMedicos()[i].obtenerSueldoMedico(),
-                    obtenerMedicos()[i].obtenerEspecialidad());
+                    medicos[i].obtenerNombreMedico(),
+                    medicos[i].obtenerSueldoMedico(),
+                    medicos[i].obtenerEspecialidad());
         }
-        //cadena = "Listado de enfermeros(as)\n";
-        for (int i = 0; i < obtenerEnfermeros().length; i++) {
+        
+        cadena = String.format("%sListado de enfermeros (as):\n",cadena);
+        for (int i = 0; i < enfermeros.length; i++) {
             cadena = String.format("%s-%s - sueldo: %.2f - %s\n", cadena,
-                    obtenerEnfermeros()[i].obtenerNombreEnfermero(),
-                    obtenerEnfermeros()[i].obtenerSueldoEnfermero(),
-                    obtenerEnfermeros()[i].obtenerTipo());
+                    enfermeros[i].obtenerNombreEnfermero(),
+                    enfermeros[i].obtenerSueldoEnfermero(),
+                    enfermeros[i].obtenerTipo());
         }
         cadena = String.format("%sTotal de sueldos a pagar por mes: %.2f\n",
                 cadena, obtenerTotalSueldos());
